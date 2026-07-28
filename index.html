@@ -19,10 +19,10 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        .topo { font-size: 14px; opacity: 0.7; text-align: center; }
+        /* PONTO 2: Opacity mudou para 1 para o texto ficar 100% branco forte como a marca */
+        .topo { font-size: 14px; opacity: 1; text-align: center; font-weight: bold; }
         .centro { text-align: center; }
-        .marca { font-size: 48px; font-weight: bold; letter-spacing: 6px; margin-bottom: 12px; }
-        .subtexto { font-size: 12px; opacity: 0.6; letter-spacing: 1px; text-transform: none; }
+        .marca { font-size: 48px; font-weight: bold; letter-spacing: 6px; }
         
         .rodape { 
             display: flex; 
@@ -50,18 +50,16 @@
     <div class="topo">it's coming</div>
     
     <div class="centro">
+        <!-- PONTO 1: A frase das camisetas foi totalmente removida daqui -->
         <div class="marca">4THEFEELING</div>
-        <div class="subtexto">Nossa coleção de camisetas chega em breve.</div>
     </div>
     
     <div class="rodape">
-        <!-- LINK DO X -->
-        <a href="https://x.com" target="_blank" title="X">
+        <a href="https://x.com/4thefeeling" target="_blank" title="X">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
         </a>
 
-        <!-- BOTAO DO PIX ATUALIZADO COM SEU TEXTO E LINK SEGURO -->
-        <a href="https://nubank.com.br/cobrar/1i9aua/6a68f9d2-a75a-4388-9545-8ba1427fab16" target="_blank" class="btn-pix">
+        <a href="https://nubank.com.br" target="_blank" class="btn-pix">
             🙏blessings🕊️
         </a>
     </div>
