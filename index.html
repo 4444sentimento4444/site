@@ -7,34 +7,62 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #1d3323; 
+            color: #ffffff;            
             font-family: 'Helvetica Neue', Arial, sans-serif;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        .topo { font-size: 14px; opacity: 0.7; }
-        .centro { font-size: 48px; font-weight: bold; letter-spacing: 6px; }
-        .rodape a { display: inline-block; opacity: 0.7; transition: opacity 0.2s; }
-        .rodape a:hover { opacity: 1; }
-        .rodape svg { width: 24px; height: 24px; fill: #ffffff; }
+        .topo { font-size: 14px; opacity: 0.7; text-align: center; }
+        .centro { text-align: center; }
+        .marca { font-size: 48px; font-weight: bold; letter-spacing: 6px; margin-bottom: 12px; }
+        .subtexto { font-size: 12px; opacity: 0.6; letter-spacing: 1px; text-transform: none; }
+        
+        .rodape { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 100%; 
+            max-width: 400px; 
+        }
+        .rodape a, .btn-pix { display: inline-block; opacity: 0.7; transition: opacity 0.2s; color: #ffffff; text-decoration: none; }
+        .rodape a:hover, .btn-pix:hover { opacity: 1; }
+        .rodape svg { width: 22px; height: 22px; fill: currentColor; }
+        
+        .btn-pix { 
+            font-size: 11px; 
+            letter-spacing: 1px; 
+            border: 1px solid rgba(255,255,255,0.4); 
+            padding: 8px 14px; 
+            border-radius: 4px; 
+            text-transform: none;
+        }
     </style>
 </head>
 <body>
 
-    <div class="topo">IT'S COMING</div>
+    <div class="topo">it's coming</div>
     
-    <div class="centro">4THEFEELING</div>
+    <div class="centro">
+        <div class="marca">4THEFEELING</div>
+        <div class="subtexto">Nossa coleção de camisetas chega em breve.</div>
+    </div>
     
     <div class="rodape">
-        <a href="https://x.com/4thefeeling" target="_blank">
+        <!-- LINK DO X -->
+        <a href="https://x.com" target="_blank" title="X">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+        </a>
+
+        <!-- BOTAO DO PIX ATUALIZADO COM SEU TEXTO E LINK SEGURO -->
+        <a href="https://nubank.com.br/cobrar/1i9aua/6a68f9d2-a75a-4388-9545-8ba1427fab16" target="_blank" class="btn-pix">
+            🙏blessings🕊️
         </a>
     </div>
 
