@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>4THEFEELING</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,6 +18,8 @@
             padding: 60px 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            /* Impede qualquer rolagem indesejada ou barras no celular */
+            overflow: hidden;
         }
         /* PONTO 2: Opacity mudou para 1 para o texto ficar 100% branco forte como a marca */
         .topo { font-size: 14px; opacity: 1; text-align: center; font-weight: bold; }
@@ -35,21 +37,23 @@
         .rodape a:hover, .btn-pix:hover { opacity: 1; }
         .rodape svg { width: 22px; height: 22px; fill: currentColor; }
         
-        /* Bloco vertical para empilhar o QR Code e o botão quase grudados */
+        /* Contêiner posicionado de forma relativa para ancorar o QR Code flutuante */
         .bloco-pix {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px; /* Distância mínima solicitada */
+            position: relative;
+            display: inline-block;
         }
 
-        /* QR Code em tamanho mínimo escaneável */
+        /* QR Code com o dobro do tamanho (70px), posicionado de forma absoluta para NÃO empurrar o botão para baixo */
         .mini-qrcode {
-            width: 35px;
-            height: 35px;
-            border-radius: 3px;
+            width: 70px;
+            height: 70px;
+            border-radius: 4px;
             background-color: #ffffff;
-            padding: 2px;
+            padding: 3px;
+            position: absolute;
+            bottom: calc(100% + 8px); /* Fica exatamente acima do botão, a 8px de distância */
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza perfeitamente em relação ao botão blessings */
             display: block;
         }
 
@@ -80,7 +84,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
         </a>
 
-        <!-- Bloco contendo o QR code anexado acima do botão blessings -->
+        <!-- Bloco estrutural com o QR Code flutuante de tamanho duplo -->
         <div class="bloco-pix">
             <img src="qrcode.png.jpeg" alt="Pix QR" class="mini-qrcode">
             <button onclick="copiarPix()" class="btn-pix" id="pix-trigger">
@@ -91,7 +95,6 @@
 
     <script>
     function copiarPix() {
-        // Sua chave aleatória do Nubank integrada para o clique
         const chavePix = "ba6e7f89-f3f9-4872-9e39-cd2dccebe393"; 
         
         const botao = document.getElementById('pix-trigger');
