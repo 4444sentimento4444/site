@@ -19,15 +19,8 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        
-        /* Alterado estritamente para Marrom Forte em Negrito */
-        .topo { 
-            font-size: 14px; 
-            color: #3d2314; 
-            text-align: center; 
-            font-weight: bold; 
-        }
-        
+        /* Alterado estritamente para a cor enviada na imagem (#2c221e) */
+        .topo { font-size: 14px; color: #2c221e; text-align: center; font-weight: bold; }
         .centro { text-align: center; }
         .marca { font-size: 48px; font-weight: bold; letter-spacing: 6px; }
         
@@ -38,17 +31,7 @@
             width: 100%; 
             max-width: 400px; 
         }
-        .rodape a, .btn-pix { 
-            display: inline-block; 
-            opacity: 0.7; 
-            transition: opacity 0.2s; 
-            color: #ffffff; 
-            text-decoration: none; 
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
+        .rodape a, .btn-pix { display: inline-block; opacity: 0.7; transition: opacity 0.2s; color: #ffffff; text-decoration: none; }
         .rodape a:hover, .btn-pix:hover { opacity: 1; }
         .rodape svg { width: 22px; height: 22px; fill: currentColor; }
         
@@ -67,6 +50,7 @@
     <div class="topo">it's coming</div>
     
     <div class="centro">
+        <!-- PONTO 1: A frase das camisetas foi totalmente removida daqui -->
         <div class="marca">4THEFEELING</div>
     </div>
     
@@ -75,32 +59,10 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
         </a>
 
-        <!-- Botão interativo de cópia do Pix com retorno de texto dinâmico -->
-        <button onclick="copiarPix()" class="btn-pix" id="pix-trigger">
+        <a href="https://nubank.com.br" target="_blank" class="btn-pix">
             🙏blessings🕊️
-        </button>
+        </a>
     </div>
-
-    <script>
-    function copiarPix() {
-        // Chave Pix aleatória configurada diretamente aqui
-        const chavePix = "ba6e7f89-f3f9-4872-9e39-cd2dccebe393"; 
-        
-        const botao = document.getElementById('pix-trigger');
-        
-        navigator.clipboard.writeText(chavePix).then(() => {
-            // Feedback discreto no próprio botão indicando o sucesso
-            const textoOriginal = botao.innerHTML;
-            botao.innerHTML = "copiado! cole no seu banco";
-            setTimeout(() => {
-                botao.innerHTML = textoOriginal;
-            }, 2500);
-        }).catch(err => {
-            // Se o navegador bloquear o script (ex: abrindo localmente ou sem HTTPS), exibe o alerta como garantia
-            alert("Chave copiada: " + chavePix);
-        });
-    }
-    </script>
 
 </body>
 </html>
