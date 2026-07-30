@@ -43,10 +43,10 @@
             display: inline-block;
         }
 
-        /* QR Code alterado para 75px e alinhado perfeitamente rente à borda direita do botão blessings */
+        /* QR Code alterado para 80px e alinhado perfeitamente rente à borda direita do botão blessings */
         .mini-qrcode {
-            width: 75px;
-            height: 75px;
+            width: 80px;
+            height: 80px;
             border-radius: 4px;
             background-color: #ffffff;
             padding: 3px;
@@ -66,6 +66,13 @@
             background: none;
             cursor: pointer;
             font-family: inherit;
+        }
+
+        /* Correção para celulares: reduz o recuo do topo/rodapé para o botão subir e não sumir sob o menu do navegador */
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px 80px 20px;
+            }
         }
     </style>
 </head>
