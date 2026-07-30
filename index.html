@@ -19,8 +19,15 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        /* PONTO 2: Opacity mudou para 1 para o texto ficar 100% branco forte como a marca */
-        .topo { font-size: 14px; opacity: 1; text-align: center; font-weight: bold; }
+        
+        /* Alterado apenas aqui: adicionado cor cinza suave através de opacidade 50% */
+        .topo { 
+            font-size: 14px; 
+            color: rgba(255, 255, 255, 0.5); 
+            text-align: center; 
+            font-weight: bold; 
+        }
+        
         .centro { text-align: center; }
         .marca { font-size: 48px; font-weight: bold; letter-spacing: 6px; }
         
@@ -31,7 +38,17 @@
             width: 100%; 
             max-width: 400px; 
         }
-        .rodape a, .btn-pix { display: inline-block; opacity: 0.7; transition: opacity 0.2s; color: #ffffff; text-decoration: none; }
+        .rodape a, .btn-pix { 
+            display: inline-block; 
+            opacity: 0.7; 
+            transition: opacity 0.2s; 
+            color: #ffffff; 
+            text-decoration: none; 
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
         .rodape a:hover, .btn-pix:hover { opacity: 1; }
         .rodape svg { width: 22px; height: 22px; fill: currentColor; }
         
@@ -50,7 +67,6 @@
     <div class="topo">it's coming</div>
     
     <div class="centro">
-        <!-- PONTO 1: A frase das camisetas foi totalmente removida daqui -->
         <div class="marca">4THEFEELING</div>
     </div>
     
@@ -59,10 +75,32 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
         </a>
 
-        <a href="https://nubank.com.br" target="_blank" class="btn-pix">
+        <!-- Alterado de link para botão de cópia com função Javascript -->
+        <button onclick="copiarPix()" class="btn-pix" id="pix-trigger">
             🙏blessings🕊️
-        </a>
+        </button>
     </div>
+
+    <script>
+    function copiarPix() {
+        // ATENÇÃO: Substitua o texto abaixo pela sua chave aleatória gerada no Nubank
+        const chavePix = ba6e7f89-f3f9-4872-9e39-cd2dccebe393; 
+        
+        const botao = document.getElementById('pix-trigger');
+        
+        navigator.clipboard.writeText(chavePix).then(() => {
+            // Feedback visual rápido no próprio botão mantendo o minimalismo
+            const textoOriginal = botao.innerHTML;
+            botao.innerHTML = "copiado! cole no seu banco";
+            setTimeout(() => {
+                botao.innerHTML = textoOriginal;
+            }, 2500);
+        }).catch(err => {
+            // Caso falhe por segurança do navegador, exibe um alerta alternativo
+            alert("Use a chave para transferência Pix: " + chavePix);
+        });
+    }
+    </script>
 
 </body>
 </html>
