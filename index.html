@@ -19,8 +19,8 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        /* Alterado estritamente para a cor enviada na imagem (#2c221e) */
-        .topo { font-size: 14px; color: #2c221e; text-align: center; font-weight: bold; }
+        /* PONTO 2: Opacity mudou para 1 para o texto ficar 100% branco forte como a marca */
+        .topo { font-size: 14px; opacity: 1; text-align: center; font-weight: bold; }
         .centro { text-align: center; }
         .marca { font-size: 48px; font-weight: bold; letter-spacing: 6px; }
         
@@ -35,6 +35,24 @@
         .rodape a:hover, .btn-pix:hover { opacity: 1; }
         .rodape svg { width: 22px; height: 22px; fill: currentColor; }
         
+        /* Bloco vertical para empilhar o QR Code e o botão quase grudados */
+        .bloco-pix {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px; /* Distância mínima solicitada */
+        }
+
+        /* QR Code em tamanho mínimo escaneável */
+        .mini-qrcode {
+            width: 35px;
+            height: 35px;
+            border-radius: 3px;
+            background-color: #ffffff;
+            padding: 2px;
+            display: block;
+        }
+
         .btn-pix { 
             font-size: 11px; 
             letter-spacing: 1px; 
@@ -42,6 +60,9 @@
             padding: 8px 14px; 
             border-radius: 4px; 
             text-transform: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
         }
     </style>
 </head>
@@ -59,10 +80,33 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
         </a>
 
-        <a href="https://nubank.com.br" target="_blank" class="btn-pix">
-            🙏blessings🕊️
-        </a>
+        <!-- Bloco contendo o QR code anexado acima do botão blessings -->
+        <div class="bloco-pix">
+            <img src="qrcode.png.jpeg" alt="Pix QR" class="mini-qrcode">
+            <button onclick="copiarPix()" class="btn-pix" id="pix-trigger">
+                🙏blessings🕊️
+            </button>
+        </div>
     </div>
+
+    <script>
+    function copiarPix() {
+        // Sua chave aleatória do Nubank integrada para o clique
+        const chavePix = "ba6e7f89-f3f9-4872-9e39-cd2dccebe393"; 
+        
+        const botao = document.getElementById('pix-trigger');
+        
+        navigator.clipboard.writeText(chavePix).then(() => {
+            const textoOriginal = botao.innerHTML;
+            botao.innerHTML = "chave pix copiado";
+            setTimeout(() => {
+                botao.innerHTML = textoOriginal;
+            }, 2500);
+        }).catch(err => {
+            alert("Chave Pix copiada com sucesso: " + chavePix);
+        });
+    }
+    </script>
 
 </body>
 </html>
