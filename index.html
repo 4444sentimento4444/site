@@ -543,21 +543,23 @@
     .produtos {
         gap: 30px;
         padding: 0 35px;
+        height: 75%;
     }
 
     .produto {
         width: 45%;
         max-width: 300px;
-        height: 55vh;
+        height: 50vh;
     }
 
-    /* SETA MENOR E MELHOR POSICIONADA NO CELULAR */
+    /* SETA DIREITA - MAIS FINA E MENOR */
     .seta-direita {
         right: 8px;
         top: 50%;
-        font-size: 30px;
-        font-weight: 900;
-        opacity: 1;
+        font-size: 28px;
+        font-weight: 400;
+        -webkit-text-stroke: 0;
+        line-height: 1;
     }
 
     /* SETA ESQUERDA */
@@ -565,15 +567,23 @@
         left: 8px;
         top: 50%;
         font-size: 24px;
+        font-weight: 400;
     }
 
-    /* PREÇO VISÍVEL E BEM POSICIONADO NO CELULAR */
+    /* PREÇO - FORÇADO A FICAR VISÍVEL */
     .preco {
-        bottom: 25px;
+        position: absolute;
         left: 50%;
-        font-size: 22px;
+        bottom: 15px;
+        transform: translateX(-50%);
+        font-size: 20px;
         font-weight: 700;
-        z-index: 50;
+        color: #ffffff;
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        z-index: 999;
+        white-space: nowrap;
     }
 
 }
