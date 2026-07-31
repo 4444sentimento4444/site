@@ -9,21 +9,32 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Habilita rolagem suave pelo link da seta */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #1d3323; 
             color: #ffffff;            
             font-family: 'Helvetica Neue', Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Estrutura para isolar cada conteúdo em uma tela cheia perfeita */
+        .tela-cheia {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
             padding: 60px 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            /* Impede qualquer rolagem indesejada ou barras no celular */
+            position: relative;
             overflow: hidden;
         }
+
         /* PONTO 2: Opacity mudou para 1 para o texto ficar 100% branco forte como a marca */
         .topo { font-size: 14px; opacity: 1; text-align: center; font-weight: bold; }
         .centro { text-align: center; }
@@ -35,6 +46,7 @@
             align-items: center; 
             width: 100%; 
             max-width: 400px; 
+            z-index: 5;
         }
         .rodape a, .btn-pix { display: inline-block; opacity: 0.7; transition: opacity 0.2s; color: #ffffff; text-decoration: none; }
         .rodape a:hover, .btn-pix:hover { opacity: 1; }
@@ -71,36 +83,119 @@
             font-family: inherit;
         }
 
+        /* ESTILO DA SETA SUTIL */
+        .seta-navegacao {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: color 0.3s;
+            animation: flutuarSeta 2.5s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .seta-navegacao:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+        .seta-navegacao svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @keyframes flutuarSeta {
+            0%, 100% { bottom: 15px; opacity: 0.3; }
+            50% { bottom: 23px; opacity: 0.8; }
+        }
+
+        /* NOVA SEÇÃO: PRODUTO COM CAMISETA GIRANDO */
+        .secao-produto {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1d3323; /* Mesmo verde exato do topo */
+            perspective: 1000px; /* Ativa a profundidade para o efeito 3D */
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container-gira {
+            transform-style: preserve-3d;
+            animation: girar3D 12s infinite linear; /* Velocidade do giro da camiseta */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .camiseta-imagem {
+            max-width: 340px; /* Tamanho controlado para não quebrar em celulares */
+            width: 85vw;
+            height: auto;
+            pointer-events: none; /* Evita que o usuário arraste a imagem sem querer */
+        }
+
+        @keyframes girar3D {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
         /* Correção para celulares: alterado estritamente para 85px conforme solicitado */
         @media (max-width: 768px) {
-            body {
+            .tela-cheia {
                 padding: 40px 20px 85px 20px;
+            }
+            .camiseta-imagem {
+                max-width: 280px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="topo">it's coming</div>
-    
-    <div class="centro">
-        <!-- PONTO 1: A frase das camisetas foi totalmente removida daqui -->
-        <div class="marca">4THEFEELING</div>
-    </div>
-    
-    <div class="rodape">
-        <a href="https://x.com/4thefeeling" target="_blank" title="X">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-        </a>
-
-        <!-- Bloco estrutural com o QR Code flutuante de tamanho duplo -->
-        <div class="bloco-pix">
-            <img src="qrcode.png.jpeg" alt="Pix QR" class="mini-qrcode">
-            <button onclick="copiarPix()" class="btn-pix" id="pix-trigger">
-                🙏blessings🕊️
-            </button>
+    <!-- PRIMEIRA TELA (Sua página principal atual) -->
+    <div class="tela-cheia">
+        <div class="topo">it's coming</div>
+        
+        <div class="centro">
+            <div class="marca">4THEFEELING</div>
         </div>
+        
+        <div class="rodape">
+            <a href="https://x.com/4thefeeling" target="_blank" title="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+
+            <div class="bloco-pix">
+                <img src="qrcode.png.jpeg" alt="Pix QR" class="mini-qrcode">
+                <button onclick="copiarPix()" class="btn-pix" id="pix-trigger">
+                    🙏blessings🕊️
+                </button>
+            </div>
+        </div>
+
+        <!-- SETA SUTIL DE NAVEGAÇÃO -->
+        <a href="#vitrine" class="seta-navegacao" aria-label="Ver Camiseta">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </a>
     </div>
+
+    <!-- SEGUNDA TELA (A vitrine com a camiseta girando) -->
+    <section id="vitrine" class="secao-produto">
+        <div class="container-gira">
+            <!-- Puxa o seu arquivo transparente configurado no GitHub -->
+            <img src="camiseta.png.png" alt="Camiseta DEUS É PAI" class="camiseta-imagem">
+        </div>
+    </section>
 
     <script>
     function copiarPix() {
