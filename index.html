@@ -529,91 +529,54 @@
            CELULAR
         ===================================================== */
 
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
 
+    .pagina {
+        padding: 40px 20px 85px 20px;
+    }
 
-            .pagina {
+    .marca {
+        font-size: 34px;
+        letter-spacing: 4px;
+    }
 
-                padding:
-                    40px
-                    20px
-                    85px
-                    20px;
-            }
+    .produtos {
+        gap: 30px;
+        padding: 0 35px;
+    }
 
+    .produto {
+        width: 45%;
+        max-width: 300px;
+        height: 55vh;
+    }
 
-            .marca {
+    /* SETA MENOR E MELHOR POSICIONADA NO CELULAR */
+    .seta-direita {
+        right: 8px;
+        top: 50%;
+        font-size: 30px;
+        font-weight: 900;
+        opacity: 1;
+    }
 
-                font-size: 34px;
+    /* SETA ESQUERDA */
+    .seta-esquerda {
+        left: 8px;
+        top: 50%;
+        font-size: 24px;
+    }
 
-                letter-spacing: 4px;
-            }
+    /* PREÇO VISÍVEL E BEM POSICIONADO NO CELULAR */
+    .preco {
+        bottom: 25px;
+        left: 50%;
+        font-size: 22px;
+        font-weight: 700;
+        z-index: 50;
+    }
 
-
-            /* ================================
-               PRODUTOS NO CELULAR
-            ================================= */
-
-            .produtos {
-
-                gap: 30px;
-
-                padding:
-                    0
-                    35px;
-            }
-
-
-            .produto {
-
-                width: 45%;
-
-                max-width: 300px;
-
-                height: 55vh;
-            }
-
-
-            /* ================================
-               SETA DIREITA
-            ================================= */
-
-            .seta-direita {
-
-                right: 18px;
-
-                color: #000000;
-
-                font-size: 36px;
-
-                font-weight: 900;
-
-                opacity: 1;
-            }
-
-
-            /* ================================
-               SETA ESQUERDA
-            ================================= */
-
-            .seta-esquerda {
-
-                left: 18px;
-            }
-
-
-            /* ================================
-               PREÇO
-            ================================= */
-
-            .preco {
-
-                bottom: 55px;
-
-                font-size: 23px;
-            }
-
-        }
+}
 
     </style>
 
