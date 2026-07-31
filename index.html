@@ -249,8 +249,8 @@
 
 
         /* =====================================================
-           SETA PARA ABRIR PRODUTO
-           PRETA E TOTALMENTE VISÍVEL
+           SETA DIREITA
+           MAIS GROSSA, ESCURA E VISÍVEL
         ===================================================== */
 
         .seta-direita {
@@ -270,9 +270,11 @@
 
             border: none;
 
-            font-size: 26px;
+            font-size: 42px;
 
-            font-weight: 400;
+            font-weight: 900;
+
+            line-height: 1;
 
             opacity: 1;
 
@@ -282,6 +284,9 @@
             cursor: pointer;
 
             z-index: 20;
+
+            -webkit-text-stroke:
+                1px #000000;
         }
 
 
@@ -293,7 +298,7 @@
 
             transform:
                 translateY(-50%)
-                translateX(4px);
+                translateX(5px);
         }
 
 
@@ -313,14 +318,16 @@
 
 
         /* =====================================================
-           CONTAINER DAS DUAS CAMISETAS
+           ÁREA DE PRODUTOS
+
+           Aumentamos o espaço entre as camisetas.
         ===================================================== */
 
         .produtos {
 
             width: 100%;
 
-            max-width: 1100px;
+            max-width: 1300px;
 
             height: 100%;
 
@@ -330,15 +337,19 @@
 
             align-items: center;
 
-            gap: 80px;
+            gap: 150px;
+
+            padding:
+                0
+                60px;
         }
 
 
         /* =====================================================
-           ÁREA DE CADA CAMISETA
+           ÁREA INDIVIDUAL DE CADA CAMISETA
 
-           Ambas recebem a mesma largura máxima e
-           a mesma altura visual.
+           As duas possuem exatamente a mesma área,
+           garantindo proporção e tamanho visual iguais.
         ===================================================== */
 
         .produto {
@@ -354,6 +365,8 @@
             justify-content: center;
 
             align-items: center;
+
+            flex-shrink: 0;
         }
 
 
@@ -390,7 +403,7 @@
 
         /* =====================================================
            SEGUNDA CAMISETA
-           AGORA TOTALMENTE ESTÁTICA
+           ESTÁTICA
         ===================================================== */
 
         .camiseta-3d {
@@ -404,6 +417,38 @@
             height: 100%;
 
             object-fit: contain;
+        }
+
+
+        /* =====================================================
+           PREÇO
+           CENTRALIZADO ENTRE AS DUAS CAMISETAS
+        ===================================================== */
+
+        .preco {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom: 70px;
+
+            transform:
+                translateX(-50%);
+
+            color: #ffffff;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: none;
+
+            white-space: nowrap;
+
+            z-index: 10;
         }
 
 
@@ -434,7 +479,7 @@
 
 
         /* =====================================================
-           SETA PARA VOLTAR
+           SETA ESQUERDA
         ===================================================== */
 
         .seta-esquerda {
@@ -505,13 +550,17 @@
             }
 
 
+            /* ================================
+               PRODUTOS NO CELULAR
+            ================================= */
+
             .produtos {
 
-                gap: 15px;
+                gap: 30px;
 
                 padding:
                     0
-                    25px;
+                    35px;
             }
 
 
@@ -525,19 +574,43 @@
             }
 
 
+            /* ================================
+               SETA DIREITA
+            ================================= */
+
             .seta-direita {
 
                 right: 18px;
 
                 color: #000000;
 
+                font-size: 36px;
+
+                font-weight: 900;
+
                 opacity: 1;
             }
 
 
+            /* ================================
+               SETA ESQUERDA
+            ================================= */
+
             .seta-esquerda {
 
                 left: 18px;
+            }
+
+
+            /* ================================
+               PREÇO
+            ================================= */
+
+            .preco {
+
+                bottom: 55px;
+
+                font-size: 23px;
             }
 
         }
@@ -695,14 +768,14 @@
             >
 
 
-                <!-- PRIMEIRA CAMISETA ESTÁTICA -->
+                <!-- PRIMEIRA CAMISETA -->
 
                 <div
                     class="produto"
                 >
 
                     <img
-                        src="camiseta.png.png"
+                        src="camiseta.png"
                         alt="Camiseta 4THEFEELING"
                         class="camiseta-estatica"
                     >
@@ -711,20 +784,32 @@
 
 
 
-                <!-- SEGUNDA CAMISETA ESTÁTICA -->
+                <!-- SEGUNDA CAMISETA -->
 
                 <div
                     class="produto"
                 >
 
                     <img
-                        src="camiseta3D.png.png"
+                        src="camiseta.png"
                         alt="Camiseta 4THEFEELING"
                         class="camiseta-3d"
                     >
 
                 </div>
 
+
+            </div>
+
+
+
+            <!-- PREÇO CENTRAL -->
+
+            <div
+                class="preco"
+            >
+
+                R$ 40,00
 
             </div>
 
