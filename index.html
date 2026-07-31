@@ -1,219 +1,667 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
     <title>4THEFEELING</title>
-    <!-- VÍNCULO DO FAVICON: Linha adicionada para puxar o ícone personalizado -->
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="favicon.png.png">
-    
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* Habilita rolagem suave pelo link da seta */
-        html {
-            scroll-behavior: smooth;
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           CONFIGURAÇÃO GERAL
+        ========================= */
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
         body {
-            background-color: #1d3323; 
-            color: #ffffff;            
+            background-color: #1d3323;
+            color: #ffffff;
             font-family: 'Helvetica Neue', Arial, sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        /* Estrutura para isolar cada conteúdo em uma tela cheia perfeita */
-        .tela-cheia {
+
+        /* =========================
+           CONTAINER PRINCIPAL
+        ========================= */
+
+        .site {
+            width: 200vw;
             height: 100vh;
+
+            display: flex;
+
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+
+        /* =========================
+           CADA PÁGINA
+        ========================= */
+
+        .pagina {
+            width: 100vw;
+            height: 100vh;
+
+            flex-shrink: 0;
+
+            position: relative;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+
             padding: 60px 20px;
-            position: relative;
-            overflow: hidden;
         }
 
-        /* PONTO 2: Opacity mudou para 1 para o texto ficar 100% branco forte como a marca */
-        .topo { font-size: 14px; opacity: 1; text-align: center; font-weight: bold; }
-        .centro { text-align: center; }
-        .marca { font-size: 48px; font-weight: bold; letter-spacing: 6px; }
-        
-        .rodape { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            width: 100%; 
-            max-width: 400px; 
-            z-index: 5;
+
+        /* =========================
+           PÁGINA 1
+        ========================= */
+
+        .topo {
+            font-size: 14px;
+            opacity: 1;
+            text-align: center;
+            font-weight: bold;
         }
-        .rodape a, .btn-pix { display: inline-block; opacity: 0.7; transition: opacity 0.2s; color: #ffffff; text-decoration: none; }
-        .rodape a:hover, .btn-pix:hover { opacity: 1; }
-        .rodape svg { width: 22px; height: 22px; fill: currentColor; }
-        
-        /* Contêiner posicionado de forma relativa para ancorar o QR Code flutuante */
+
+        .centro {
+            text-align: center;
+        }
+
+        .marca {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 6px;
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        .rodape {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .rodape a,
+        .btn-pix {
+            display: inline-block;
+
+            opacity: 0.7;
+
+            transition: opacity 0.2s;
+
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .rodape a:hover,
+        .btn-pix:hover {
+            opacity: 1;
+        }
+
+        .rodape svg {
+            width: 22px;
+            height: 22px;
+
+            fill: currentColor;
+        }
+
+
+        /* =========================
+           PIX
+        ========================= */
+
         .bloco-pix {
             position: relative;
             display: inline-block;
         }
 
-        /* QR Code alterado para 80px e alinhado perfeitamente rente à borda direita do botão blessings */
         .mini-qrcode {
             width: 80px;
             height: 80px;
+
             border-radius: 4px;
+
             background-color: #ffffff;
             padding: 3px;
+
             position: absolute;
-            bottom: calc(100% + 8px); /* Fica exatamente acima do botão, a 8px de distância */
-            right: 0px; /* Alinha o lado direito com o final della linha do botão */
+
+            bottom: calc(100% + 8px);
+            right: 0;
+
             display: block;
         }
 
-        .btn-pix { 
-            font-size: 11px; 
-            letter-spacing: 1px; 
-            border: 1px solid rgba(255,255,255,0.4); 
-            padding: 8px 14px; 
-            border-radius: 4px; 
+        .btn-pix {
+            font-size: 11px;
+            letter-spacing: 1px;
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            padding: 8px 14px;
+
+            border-radius: 4px;
+
             text-transform: none;
+
             background: none;
+
             cursor: pointer;
+
             font-family: inherit;
         }
 
-        /* ESTILO DA SETA SUTIL */
-        .seta-navegacao {
+
+        /* =========================
+           SETA PARA PRODUTO
+        ========================= */
+
+        .seta-direita {
             position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.4);
+
+            right: 30px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 26px;
+
+            font-weight: 300;
+
+            opacity: 0.35;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+
             cursor: pointer;
-            transition: color 0.3s;
-            animation: flutuarSeta 2.5s infinite ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .seta-navegacao:hover {
-            color: rgba(255, 255, 255, 1);
-        }
-        .seta-navegacao svg {
-            width: 24px;
-            height: 24px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+
+            z-index: 10;
         }
 
-        @keyframes flutuarSeta {
-            0%, 100% { bottom: 15px; opacity: 0.3; }
-            50% { bottom: 23px; opacity: 0.8; }
+        .seta-direita:hover {
+            opacity: 0.9;
+
+            transform:
+                translateY(-50%)
+                translateX(4px);
         }
 
-        /* NOVA SEÇÃO: PRODUTO COM CAMISETA GIRANDO */
-        .secao-produto {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #1d3323; /* Mesmo verde exato do topo */
-            perspective: 1000px; /* Ativa a profundidade para o efeito 3D */
+
+        /* =========================
+           PÁGINA DE PRODUTO
+        ========================= */
+
+        .pagina-produto {
+            background-color: #1d3323;
+
+            position: relative;
+
             overflow: hidden;
-            padding: 20px;
         }
 
-        .container-gira {
-            transform-style: preserve-3d;
-            animation: girar3D 12s infinite linear; /* Velocidade do giro da camiseta */
+
+        /* =========================
+           CONTAINER DAS CAMISETAS
+        ========================= */
+
+        .produtos {
+            width: 100%;
+            max-width: 1200px;
+
+            height: 100%;
+
             display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 60px;
+        }
+
+
+        /* =========================
+           CADA PRODUTO
+        ========================= */
+
+        .produto {
+            width: 42%;
+            max-width: 500px;
+
+            display: flex;
+
             justify-content: center;
             align-items: center;
         }
 
-        .camiseta-imagem {
-            max-width: 340px; /* Tamanho controlado para não quebrar em celulares */
-            width: 85vw;
+        .produto img {
+            display: block;
+
+            width: 100%;
             height: auto;
-            pointer-events: none; /* Evita que o usuário arraste a imagem sem querer */
+
+            object-fit: contain;
         }
 
-        @keyframes girar3D {
-            from { transform: rotateY(0deg); }
-            to { transform: rotateY(360deg); }
+
+        /* =========================
+           CAMISETA ESTÁTICA
+        ========================= */
+
+        .camiseta-estatica {
+            animation: entradaSuave 1s ease both;
         }
 
-        /* Correção para celulares: alterado estritamente para 85px conforme solicitado */
+
+        /* =========================
+           CAMISETA 3D
+        ========================= */
+
+        .camiseta-3d {
+            animation:
+                entradaSuave 1s ease both,
+                girarCamiseta 8s linear infinite;
+
+            transform-style: preserve-3d;
+        }
+
+
+        /* =========================
+           ANIMAÇÃO DE ENTRADA
+        ========================= */
+
+        @keyframes entradaSuave {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           ANIMAÇÃO 3D
+        ========================= */
+
+        @keyframes girarCamiseta {
+
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+
+        }
+
+
+        /* =========================
+           SETA DE VOLTAR
+        ========================= */
+
+        .seta-esquerda {
+            position: absolute;
+
+            left: 30px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 26px;
+
+            font-weight: 300;
+
+            opacity: 0.35;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+
+            cursor: pointer;
+
+            z-index: 10;
+        }
+
+        .seta-esquerda:hover {
+            opacity: 0.9;
+
+            transform:
+                translateY(-50%)
+                translateX(-4px);
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
         @media (max-width: 768px) {
-            .tela-cheia {
+
+            .pagina {
                 padding: 40px 20px 85px 20px;
             }
-            .camiseta-imagem {
-                max-width: 280px;
+
+            .marca {
+                font-size: 34px;
+                letter-spacing: 4px;
             }
+
+            .produtos {
+
+                flex-direction: column;
+
+                gap: 20px;
+
+                justify-content: center;
+            }
+
+            .produto {
+
+                width: 75%;
+
+                max-width: 350px;
+            }
+
+            .seta-direita {
+                right: 18px;
+            }
+
+            .seta-esquerda {
+                left: 18px;
+            }
+
         }
+
     </style>
+
 </head>
+
+
 <body>
 
-    <!-- PRIMEIRA TELA (Sua página principal atual) -->
-    <div class="tela-cheia">
-        <div class="topo">it's coming</div>
-        
-        <div class="centro">
-            <div class="marca">4THEFEELING</div>
-        </div>
-        
-        <div class="rodape">
-            <a href="https://x.com/4thefeeling" target="_blank" title="X">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-            </a>
 
-            <div class="bloco-pix">
-                <img src="qrcode.png.jpeg" alt="Pix QR" class="mini-qrcode">
-                <button onclick="copiarPix()" class="btn-pix" id="pix-trigger">
-                    🙏blessings🕊️
-                </button>
+    <!-- =====================================================
+         CONTAINER QUE DESLIZA ENTRE AS DUAS PÁGINAS
+    ====================================================== -->
+
+    <main class="site" id="site">
+
+
+        <!-- =================================================
+             PÁGINA 1 — HOME
+        ================================================== -->
+
+        <section class="pagina pagina-home">
+
+
+            <!-- TOPO -->
+
+            <div class="topo">
+                it's coming
             </div>
-        </div>
 
-        <!-- SETA SUTIL DE NAVEGAÇÃO -->
-        <a href="#vitrine" class="seta-navegacao" aria-label="Ver Camiseta">
-            <svg viewBox="0 0 24 24">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
-        </a>
-    </div>
 
-    <!-- SEGUNDA TELA (A vitrine com a camiseta girando) -->
-    <section id="vitrine" class="secao-produto">
-        <div class="container-gira">
-            <!-- Puxa o seu arquivo transparente configurado no GitHub -->
-            <img src="camiseta.png.png" alt="Camiseta DEUS É PAI" class="camiseta-imagem">
-        </div>
-    </section>
+            <!-- CENTRO -->
+
+            <div class="centro">
+
+                <div class="marca">
+                    4THEFEELING
+                </div>
+
+            </div>
+
+
+            <!-- RODAPÉ -->
+
+            <div class="rodape">
+
+
+                <!-- X -->
+
+                <a
+                    href="https://x.com/4thefeeling"
+                    target="_blank"
+                    title="X"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                        </path>
+
+                    </svg>
+
+                </a>
+
+
+                <!-- PIX -->
+
+                <div class="bloco-pix">
+
+                    <img
+                        src="qrcode.png.jpeg"
+                        alt="Pix QR"
+                        class="mini-qrcode"
+                    >
+
+                    <button
+                        onclick="copiarPix()"
+                        class="btn-pix"
+                        id="pix-trigger"
+                    >
+                        🙏blessings🕊️
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- SETA PARA DIREITA -->
+
+            <button
+                class="seta-direita"
+                onclick="abrirProduto()"
+                aria-label="Ver produto"
+            >
+                →
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PÁGINA 2 — PRODUTOS
+        ================================================== -->
+
+        <section class="pagina pagina-produto">
+
+
+            <!-- SETA PARA VOLTAR -->
+
+            <button
+                class="seta-esquerda"
+                onclick="voltarInicio()"
+                aria-label="Voltar"
+            >
+                ←
+            </button>
+
+
+            <!-- PRODUTOS -->
+
+            <div class="produtos">
+
+
+                <!-- CAMISETA ESTÁTICA -->
+
+                <div class="produto">
+
+                    <img
+                        src="camiseta.png.png"
+                        alt="Camiseta 4THEFEELING"
+                        class="camiseta-estatica"
+                    >
+
+                </div>
+
+
+                <!-- CAMISETA 3D -->
+
+                <div class="produto">
+
+                    <img
+                        src="camiseta3D.png.png"
+                        alt="Camiseta 4THEFEELING 3D"
+                        class="camiseta-3d"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script>
-    function copiarPix() {
-        const chavePix = "ba6e7f89-f3f9-4872-9e39-cd2dccebe393"; 
-        
-        const botao = document.getElementById('pix-trigger');
-        
-        navigator.clipboard.writeText(chavePix).then(() => {
-            const textoOriginal = botao.innerHTML;
-            botao.innerHTML = "chave pix copiado";
-            setTimeout(() => {
-                botao.innerHTML = textoOriginal;
-            }, 2500);
-        }).catch(err => {
-            alert("Chave Pix copiada com sucesso: " + chavePix);
-        });
-    }
+
+
+        /* =========================
+           NAVEGAÇÃO
+        ========================= */
+
+        function abrirProduto() {
+
+            document
+                .getElementById('site')
+                .style.transform = 'translateX(-100vw)';
+
+        }
+
+
+        function voltarInicio() {
+
+            document
+                .getElementById('site')
+                .style.transform = 'translateX(0)';
+
+        }
+
+
+        /* =========================
+           PIX
+        ========================= */
+
+        function copiarPix() {
+
+            const chavePix =
+                "ba6e7f89-f3f9-4872-9e39-cd2dccebe393";
+
+            const botao =
+                document.getElementById('pix-trigger');
+
+
+            navigator.clipboard
+                .writeText(chavePix)
+
+                .then(() => {
+
+                    const textoOriginal =
+                        botao.innerHTML;
+
+                    botao.innerHTML =
+                        "chave pix copiado";
+
+
+                    setTimeout(() => {
+
+                        botao.innerHTML =
+                            textoOriginal;
+
+                    }, 2500);
+
+                })
+
+
+                .catch(err => {
+
+                    alert(
+                        "Chave Pix copiada com sucesso: "
+                        + chavePix
+                    );
+
+                });
+
+        }
+
+
     </script>
 
+
 </body>
+
 </html>
