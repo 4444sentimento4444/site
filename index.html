@@ -2,19 +2,28 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <title>4THEFEELING</title>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="favicon.png.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png.png"
+    >
 
     <style>
 
-        /* =========================
+        /* =====================================================
            RESET
-        ========================= */
+        ===================================================== */
 
         * {
             margin: 0;
@@ -23,9 +32,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            CONFIGURAÇÃO GERAL
-        ========================= */
+        ===================================================== */
 
         html,
         body {
@@ -34,35 +43,50 @@
             overflow: hidden;
         }
 
+
         body {
+
             background-color: #1d3323;
+
             color: #ffffff;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+
+            font-family:
+                'Helvetica Neue',
+                Arial,
+                sans-serif;
+
             text-transform: uppercase;
+
             letter-spacing: 2px;
         }
 
 
-        /* =========================
-           CONTAINER PRINCIPAL
-        ========================= */
+        /* =====================================================
+           CONTAINER DAS DUAS TELAS
+        ===================================================== */
 
         .site {
+
             width: 200vw;
+
             height: 100vh;
 
             display: flex;
 
-            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            transition:
+                transform 0.8s
+                cubic-bezier(0.77, 0, 0.175, 1);
         }
 
 
-        /* =========================
+        /* =====================================================
            CADA PÁGINA
-        ========================= */
+        ===================================================== */
 
         .pagina {
+
             width: 100vw;
+
             height: 100vh;
 
             flex-shrink: 0;
@@ -70,107 +94,147 @@
             position: relative;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
+
             align-items: center;
 
             padding: 60px 20px;
         }
 
 
-        /* =========================
-           PÁGINA 1
-        ========================= */
+        /* =====================================================
+           PÁGINA INICIAL
+        ===================================================== */
 
         .topo {
+
             font-size: 14px;
+
             opacity: 1;
+
             text-align: center;
+
             font-weight: bold;
         }
+
 
         .centro {
+
             text-align: center;
         }
 
+
         .marca {
+
             font-size: 48px;
+
             font-weight: bold;
+
             letter-spacing: 6px;
         }
 
 
-        /* =========================
+        /* =====================================================
            RODAPÉ
-        ========================= */
+        ===================================================== */
 
         .rodape {
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
             width: 100%;
+
             max-width: 400px;
         }
 
+
         .rodape a,
         .btn-pix {
+
             display: inline-block;
 
             opacity: 0.7;
 
-            transition: opacity 0.2s;
+            transition:
+                opacity 0.2s;
 
             color: #ffffff;
+
             text-decoration: none;
         }
 
+
         .rodape a:hover,
         .btn-pix:hover {
+
             opacity: 1;
         }
 
+
         .rodape svg {
+
             width: 22px;
+
             height: 22px;
 
             fill: currentColor;
         }
 
 
-        /* =========================
+        /* =====================================================
            PIX
-        ========================= */
+        ===================================================== */
 
         .bloco-pix {
+
             position: relative;
+
             display: inline-block;
         }
 
+
         .mini-qrcode {
+
             width: 80px;
+
             height: 80px;
 
             border-radius: 4px;
 
             background-color: #ffffff;
+
             padding: 3px;
 
             position: absolute;
 
-            bottom: calc(100% + 8px);
+            bottom:
+                calc(100% + 8px);
+
             right: 0;
 
             display: block;
         }
 
+
         .btn-pix {
+
             font-size: 11px;
+
             letter-spacing: 1px;
 
-            border: 1px solid rgba(255,255,255,0.4);
+            border:
+                1px solid
+                rgba(255,255,255,0.4);
 
-            padding: 8px 14px;
+            padding:
+                8px 14px;
 
             border-radius: 4px;
 
@@ -184,39 +248,48 @@
         }
 
 
-        /* =========================
-           SETA PARA PRODUTO
-        ========================= */
+        /* =====================================================
+           SETA PARA ABRIR PRODUTO
+           PRETA E TOTALMENTE VISÍVEL
+        ===================================================== */
 
         .seta-direita {
+
             position: absolute;
 
             right: 30px;
+
             top: 50%;
 
-            transform: translateY(-50%);
+            transform:
+                translateY(-50%);
 
-            color: #ffffff;
+            color: #000000;
 
-            text-decoration: none;
+            background: none;
+
+            border: none;
 
             font-size: 26px;
 
-            font-weight: 300;
+            font-weight: 400;
 
-            opacity: 0.35;
+            opacity: 1;
 
             transition:
-                opacity 0.3s ease,
                 transform 0.3s ease;
 
             cursor: pointer;
 
-            z-index: 10;
+            z-index: 20;
         }
 
+
         .seta-direita:hover {
-            opacity: 0.9;
+
+            color: #000000;
+
+            opacity: 1;
 
             transform:
                 translateY(-50%)
@@ -224,12 +297,14 @@
         }
 
 
-        /* =========================
-           PÁGINA DE PRODUTO
-        ========================= */
+        /* =====================================================
+           PÁGINA DO PRODUTO
+        ===================================================== */
 
         .pagina-produto {
-            background-color: #1d3323;
+
+            background-color:
+                #1d3323;
 
             position: relative;
 
@@ -237,122 +312,147 @@
         }
 
 
-        /* =========================
-           CONTAINER DAS CAMISETAS
-        ========================= */
+        /* =====================================================
+           CONTAINER DAS DUAS CAMISETAS
+        ===================================================== */
 
         .produtos {
+
             width: 100%;
-            max-width: 1200px;
+
+            max-width: 1100px;
 
             height: 100%;
 
             display: flex;
 
             justify-content: center;
+
             align-items: center;
 
-            gap: 60px;
+            gap: 80px;
         }
 
 
-        /* =========================
-           CADA PRODUTO
-        ========================= */
+        /* =====================================================
+           ÁREA DE CADA CAMISETA
+
+           Ambas recebem a mesma largura máxima e
+           a mesma altura visual.
+        ===================================================== */
 
         .produto {
-            width: 42%;
-            max-width: 500px;
+
+            width: 40%;
+
+            max-width: 450px;
+
+            height: 70vh;
 
             display: flex;
 
             justify-content: center;
+
             align-items: center;
         }
 
+
+        /* =====================================================
+           IMAGENS DAS CAMISETAS
+        ===================================================== */
+
         .produto img {
+
             display: block;
 
             width: 100%;
-            height: auto;
+
+            height: 100%;
 
             object-fit: contain;
         }
 
 
-        /* =========================
-           CAMISETA ESTÁTICA
-        ========================= */
+        /* =====================================================
+           PRIMEIRA CAMISETA
+           MANTIDA ESTÁTICA
+        ===================================================== */
 
         .camiseta-estatica {
-            animation: entradaSuave 1s ease both;
+
+            animation:
+                entradaSuave
+                1s
+                ease
+                both;
         }
 
 
-        /* =========================
-           CAMISETA 3D
-        ========================= */
+        /* =====================================================
+           SEGUNDA CAMISETA
+           AGORA TOTALMENTE ESTÁTICA
+        ===================================================== */
 
         .camiseta-3d {
-            animation:
-                entradaSuave 1s ease both,
-                girarCamiseta 8s linear infinite;
 
-            transform-style: preserve-3d;
+            animation: none;
+
+            transform: none;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
         }
 
 
-        /* =========================
-           ANIMAÇÃO DE ENTRADA
-        ========================= */
+        /* =====================================================
+           ENTRADA SUAVE
+        ===================================================== */
 
         @keyframes entradaSuave {
 
             from {
+
                 opacity: 0;
-                transform: translateY(15px);
+
+                transform:
+                    translateY(15px);
             }
+
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
 
         }
 
 
-        /* =========================
-           ANIMAÇÃO 3D
-        ========================= */
-
-        @keyframes girarCamiseta {
-
-            0% {
-                transform: perspective(1000px) rotateY(0deg);
-            }
-
-            100% {
-                transform: perspective(1000px) rotateY(360deg);
-            }
-
-        }
-
-
-        /* =========================
-           SETA DE VOLTAR
-        ========================= */
+        /* =====================================================
+           SETA PARA VOLTAR
+        ===================================================== */
 
         .seta-esquerda {
+
             position: absolute;
 
             left: 30px;
+
             top: 50%;
 
-            transform: translateY(-50%);
+            transform:
+                translateY(-50%);
 
             color: #ffffff;
 
-            text-decoration: none;
+            background: none;
+
+            border: none;
 
             font-size: 26px;
 
@@ -366,10 +466,12 @@
 
             cursor: pointer;
 
-            z-index: 10;
+            z-index: 20;
         }
 
+
         .seta-esquerda:hover {
+
             opacity: 0.9;
 
             transform:
@@ -378,42 +480,63 @@
         }
 
 
-        /* =========================
-           RESPONSIVIDADE
-        ========================= */
+        /* =====================================================
+           CELULAR
+        ===================================================== */
 
         @media (max-width: 768px) {
 
+
             .pagina {
-                padding: 40px 20px 85px 20px;
+
+                padding:
+                    40px
+                    20px
+                    85px
+                    20px;
             }
 
+
             .marca {
+
                 font-size: 34px;
+
                 letter-spacing: 4px;
             }
 
+
             .produtos {
 
-                flex-direction: column;
+                gap: 15px;
 
-                gap: 20px;
-
-                justify-content: center;
+                padding:
+                    0
+                    25px;
             }
+
 
             .produto {
 
-                width: 75%;
+                width: 45%;
 
-                max-width: 350px;
+                max-width: 300px;
+
+                height: 55vh;
             }
+
 
             .seta-direita {
+
                 right: 18px;
+
+                color: #000000;
+
+                opacity: 1;
             }
 
+
             .seta-esquerda {
+
                 left: 18px;
             }
 
@@ -428,23 +551,30 @@
 
 
     <!-- =====================================================
-         CONTAINER QUE DESLIZA ENTRE AS DUAS PÁGINAS
-    ====================================================== -->
+         CONTAINER PRINCIPAL
+    ===================================================== -->
 
-    <main class="site" id="site">
+    <main
+        class="site"
+        id="site"
+    >
 
 
         <!-- =================================================
-             PÁGINA 1 — HOME
+             PRIMEIRA PÁGINA
         ================================================== -->
 
-        <section class="pagina pagina-home">
+        <section
+            class="pagina pagina-home"
+        >
 
 
             <!-- TOPO -->
 
             <div class="topo">
+
                 it's coming
+
             </div>
 
 
@@ -453,7 +583,9 @@
             <div class="centro">
 
                 <div class="marca">
+
                     4THEFEELING
+
                 </div>
 
             </div>
@@ -477,7 +609,9 @@
                         aria-hidden="true"
                     >
 
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                        >
                         </path>
 
                     </svg>
@@ -487,7 +621,9 @@
 
                 <!-- PIX -->
 
-                <div class="bloco-pix">
+                <div
+                    class="bloco-pix"
+                >
 
                     <img
                         src="qrcode.png.jpeg"
@@ -495,12 +631,15 @@
                         class="mini-qrcode"
                     >
 
+
                     <button
                         onclick="copiarPix()"
                         class="btn-pix"
                         id="pix-trigger"
                     >
+
                         🙏blessings🕊️
+
                     </button>
 
                 </div>
@@ -509,14 +648,16 @@
             </div>
 
 
-            <!-- SETA PARA DIREITA -->
+            <!-- SETA DIREITA -->
 
             <button
                 class="seta-direita"
                 onclick="abrirProduto()"
                 aria-label="Ver produto"
             >
+
                 →
+
             </button>
 
 
@@ -525,31 +666,40 @@
 
 
         <!-- =================================================
-             PÁGINA 2 — PRODUTOS
+             SEGUNDA PÁGINA
         ================================================== -->
 
-        <section class="pagina pagina-produto">
+        <section
+            class="pagina pagina-produto"
+        >
 
 
-            <!-- SETA PARA VOLTAR -->
+            <!-- SETA VOLTAR -->
 
             <button
                 class="seta-esquerda"
                 onclick="voltarInicio()"
                 aria-label="Voltar"
             >
+
                 ←
+
             </button>
+
 
 
             <!-- PRODUTOS -->
 
-            <div class="produtos">
+            <div
+                class="produtos"
+            >
 
 
-                <!-- CAMISETA ESTÁTICA -->
+                <!-- PRIMEIRA CAMISETA ESTÁTICA -->
 
-                <div class="produto">
+                <div
+                    class="produto"
+                >
 
                     <img
                         src="camiseta.png.png"
@@ -560,13 +710,16 @@
                 </div>
 
 
-                <!-- CAMISETA 3D -->
 
-                <div class="produto">
+                <!-- SEGUNDA CAMISETA ESTÁTICA -->
+
+                <div
+                    class="produto"
+                >
 
                     <img
                         src="camiseta3D.png.png"
-                        alt="Camiseta 4THEFEELING 3D"
+                        alt="Camiseta 4THEFEELING"
                         class="camiseta-3d"
                     >
 
@@ -585,53 +738,69 @@
 
     <!-- =====================================================
          JAVASCRIPT
-    ====================================================== -->
+    ===================================================== -->
 
     <script>
 
 
-        /* =========================
-           NAVEGAÇÃO
-        ========================= */
+        /* =====================================================
+           ABRIR PÁGINA DO PRODUTO
+        ===================================================== */
 
         function abrirProduto() {
 
             document
                 .getElementById('site')
-                .style.transform = 'translateX(-100vw)';
+                .style.transform =
+                'translateX(-100vw)';
 
         }
 
+
+
+        /* =====================================================
+           VOLTAR PARA A HOME
+        ===================================================== */
 
         function voltarInicio() {
 
             document
                 .getElementById('site')
-                .style.transform = 'translateX(0)';
+                .style.transform =
+                'translateX(0)';
 
         }
 
 
-        /* =========================
-           PIX
-        ========================= */
+
+        /* =====================================================
+           COPIAR PIX
+        ===================================================== */
 
         function copiarPix() {
+
 
             const chavePix =
                 "ba6e7f89-f3f9-4872-9e39-cd2dccebe393";
 
+
             const botao =
-                document.getElementById('pix-trigger');
+                document.getElementById(
+                    'pix-trigger'
+                );
 
 
-            navigator.clipboard
+            navigator
+                .clipboard
                 .writeText(chavePix)
+
 
                 .then(() => {
 
+
                     const textoOriginal =
                         botao.innerHTML;
+
 
                     botao.innerHTML =
                         "chave pix copiado";
@@ -639,20 +808,25 @@
 
                     setTimeout(() => {
 
+
                         botao.innerHTML =
                             textoOriginal;
 
+
                     }, 2500);
+
 
                 })
 
 
                 .catch(err => {
 
+
                     alert(
                         "Chave Pix copiada com sucesso: "
                         + chavePix
                     );
+
 
                 });
 
